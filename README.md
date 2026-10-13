@@ -2,16 +2,18 @@
 
 How many fingers am I holding?
 
-Pick a number from 0 to 5. The hand pumps "3, 2, 1", then raises its fingers to show the
-answer. Guess right for confetti and a streak.
+Pick a number from 0 to 5. The hand shows how many fingers I was holding, and the message
+tells you if you guessed right.
 
 Plain HTML, CSS and JavaScript, no build step: open `index.html` in a browser.
 
 | File | What it does |
 | --- | --- |
-| `index.html` | Page structure: the hand, the guess buttons and the score |
-| `style.css` | The hand, the countdown, reveal and celebration animations |
-| `script.js` | Game logic: picks a number, runs the countdown, checks the guess, keeps score |
+| `index.html` | The page: question, hand, message, buttons and score |
+| `style.css` | How it looks |
+| `script.js` | The game: picks a number, checks your guess, keeps score |
+| `original/index.html` | The first version from 2018, untouched |
+| [`CHANGES.md`](CHANGES.md) | What changed from the 2018 version, and what was kept |
 
 Also playable (and editable) on [travellingcoder.in](https://travellingcoder.in/projects/finger-game),
 which loads these files straight from this repo.

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>How Many Fingers?</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+
+	<p>Hom many fingers am I holding?</p>
+
+	<input id="count" />
+
+	<button id="Check">Validate</button>
+
+	<script type="text/javascript">
+
+		document.getElementById("Check").onclick=function(){
+
+
+			var x=Math.random();
+
+			x=6*x;
+
+			x=Math.floor(x);
+
+			if(x==document.getElementById("count").value){
+
+				alert("You Guessed it right!");
+			} else {
+				alert("You Guessed it wrong..!! I was holding up " + x +".");
+			}
+
+
+		}
+
+	</script>
+
+</body>
+</html>

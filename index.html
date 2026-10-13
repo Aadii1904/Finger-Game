@@ -1,41 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- ORIGINAL (2018): same title and meta tags -->
+  <title>How Many Fingers?</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>How Many Fingers?</title>
+
+  <!-- NEW: styles moved to their own file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="game">
+    <!-- ORIGINAL (2018): the question (typo "Hom" fixed) -->
     <h1>How many fingers am I holding?</h1>
-    <p class="hint">Pick a number from 0 to 5, then watch my hand.</p>
 
-    <!-- My "hand": a fist that pumps 3-2-1, then opens to show the answer -->
-    <div class="stage">
-      <div class="hand" id="hand" aria-hidden="true">
-        <span class="finger thumb"></span>
-        <span class="finger"></span>
-        <span class="finger"></span>
-        <span class="finger"></span>
-        <span class="finger"></span>
-        <span class="palm"></span>
-      </div>
-      <!-- Confetti pieces are added here when you guess right -->
-      <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <!-- NEW: a hand that shows how many fingers I was holding -->
+    <div class="hand" id="hand" aria-hidden="true">
+      <span class="finger thumb"></span>
+      <span class="finger"></span>
+      <span class="finger"></span>
+      <span class="finger"></span>
+      <span class="finger"></span>
+      <span class="palm"></span>
     </div>
 
-    <p class="result" id="result" role="status" aria-live="polite">Make a guess!</p>
+    <!-- NEW: the answer is written here instead of in an alert() pop-up -->
+    <p class="result" id="result" role="status" aria-live="polite">Pick a number from 0 to 5</p>
 
-    <!-- The guess buttons (0 to 5) are added by script.js -->
+    <!-- NEW: one button per number (made in script.js), instead of
+         ORIGINAL (2018): <input id="count" /> and <button id="Check">Validate</button> -->
     <div class="choices" id="choices"></div>
 
-    <div class="score">
-      <span>Score <strong id="score">0</strong>/<strong id="rounds">0</strong></span>
-      <span id="streak-box">Streak <strong id="streak">0</strong></span>
-    </div>
+    <!-- NEW: a running score -->
+    <p class="score">Score <strong id="score">0</strong> / <strong id="rounds">0</strong></p>
   </main>
 
+  <!-- NEW: the script moved to its own file -->
   <script src="script.js"></script>
 </body>
 </html>
