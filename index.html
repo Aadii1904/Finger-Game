@@ -1,44 +1,41 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-	<title>How Many Fingers?</title>
-
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How Many Fingers?</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <main class="game">
+    <h1>How many fingers am I holding?</h1>
+    <p class="hint">Pick a number from 0 to 5, then watch my hand.</p>
 
-	<p>Hom many fingers am I holding?</p>
+    <!-- My "hand": a fist that pumps 3-2-1, then opens to show the answer -->
+    <div class="stage">
+      <div class="hand" id="hand" aria-hidden="true">
+        <span class="finger thumb"></span>
+        <span class="finger"></span>
+        <span class="finger"></span>
+        <span class="finger"></span>
+        <span class="finger"></span>
+        <span class="palm"></span>
+      </div>
+      <!-- Confetti pieces are added here when you guess right -->
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+    </div>
 
-	<input id="count" />
+    <p class="result" id="result" role="status" aria-live="polite">Make a guess!</p>
 
-	<button id="Check">Validate</button>
+    <!-- The guess buttons (0 to 5) are added by script.js -->
+    <div class="choices" id="choices"></div>
 
-	<script type="text/javascript">
+    <div class="score">
+      <span>Score <strong id="score">0</strong>/<strong id="rounds">0</strong></span>
+      <span id="streak-box">Streak <strong id="streak">0</strong></span>
+    </div>
+  </main>
 
-		document.getElementById("Check").onclick=function(){
-
-
-			var x=Math.random();
-
-			x=6*x;
-
-			x=Math.floor(x);
-
-			if(x==document.getElementById("count").value){
-
-				alert("You Guessed it right!");
-			} else {
-				alert("You Guessed it wrong..!! I was holding up " + x +".");
-			}
-
-
-		}
-
-	</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
