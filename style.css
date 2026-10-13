@@ -30,48 +30,87 @@ h1 {
   line-height: 1.2;
 }
 
-/* The hand: a palm with four fingers and a thumb. A raised finger is taller and orange. */
+/* The hand: a palm with four fingers and a thumb.
+   A lowered finger curls into a knuckle on top of the palm; a raised one stands up
+   with a nail and a crease, and the raised fingers fan out a little. */
 .hand {
   position: relative;
-  width: 190px;
-  height: 180px;
+  width: 200px;
+  height: 190px;
 }
 
 .palm {
   position: absolute;
-  left: 40px;
-  right: 10px;
+  z-index: 1;
+  left: 42px;
+  right: 14px;
   bottom: 0;
-  height: 86px;
-  border-radius: 34px 34px 44px 44px;
-  background: #f5c9a3;
+  height: 88px;
+  border-radius: 30px 30px 46px 46px;
+  background: #f2c4a0;
+  box-shadow: inset -8px -8px 0 rgba(0, 0, 0, 0.05);
 }
 
 .finger {
   position: absolute;
-  bottom: 60px;
+  bottom: 66px;
   width: 30px;
-  height: 46px;
-  border-radius: 15px;
-  background: #e9b48a;
-  transition: height 0.15s ease;
+  height: 34px; /* lowered: just the curled knuckle shows above the palm */
+  border-radius: 15px 15px 12px 12px;
+  background: #e4ad86;
+  transform-origin: 50% 100%;
+  transition: height 0.15s ease, transform 0.15s ease, background 0.15s ease;
 }
 
-.finger:nth-child(2) { left: 44px; }
-.finger:nth-child(3) { left: 78px; }
-.finger:nth-child(4) { left: 112px; }
-.finger:nth-child(5) { left: 146px; }
-
-.finger.thumb {
+/* Knuckle crease, about a third of the way down a raised finger */
+.finger::before {
+  content: "";
+  position: absolute;
   left: 8px;
-  bottom: 30px;
-  height: 40px;
-  transform: rotate(-35deg);
-  transform-origin: bottom center;
+  right: 8px;
+  top: 38%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
 }
 
-.finger.up { height: 96px; background: #f97316; }
-.finger.thumb.up { height: 70px; }
+/* Fingernail at the tip */
+.finger::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  top: 5px;
+  height: 13px;
+  border-radius: 7px 7px 4px 4px;
+  background: #fbe3d3;
+  opacity: 0;
+}
+
+.finger:nth-child(2) { left: 46px; }
+.finger:nth-child(3) { left: 80px; }
+.finger:nth-child(4) { left: 114px; }
+.finger:nth-child(5) { left: 148px; width: 27px; }
+
+/* The thumb sits low on the side, angled out */
+.finger.thumb {
+  left: 24px;
+  bottom: 34px;
+  height: 34px;
+  transform: rotate(-30deg); /* lowered: tucked against the palm */
+}
+
+/* Raised: skin tone, crease and nail showing, each finger its own length and angle */
+.finger.up { background: #f2c4a0; }
+.finger.up::before,
+.finger.up::after { opacity: 1; }
+
+.finger.up:nth-child(2) { height: 92px; transform: rotate(-6deg); }
+.finger.up:nth-child(3) { height: 104px; transform: rotate(-1deg); }
+.finger.up:nth-child(4) { height: 96px; transform: rotate(4deg); }
+.finger.up:nth-child(5) { height: 76px; transform: rotate(9deg); }
+.finger.thumb.up { height: 66px; transform: rotate(-28deg); }
 
 /* The message under the hand */
 .result {
